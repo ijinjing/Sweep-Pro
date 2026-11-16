@@ -160,6 +160,12 @@
 			time-to-max-speed-ms = <40>;// 500
 			delay-ms = <0>;// 10
 		};
+        rot_msc: sensor_rotate_msc {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
+            tap-ms = <20>;
+        };
 	};
 	
 	conditional_layers {
@@ -226,7 +232,7 @@
 			&ds_z 0 Z   &sel_x LCLK X       &kp C        &kp V        &kp B         &kp N      &kp M        &kp COMMA    &kp DOT     &kp ENTER
 			&kp C_MUTE  &lt LEF TAB  &kp LSHIFT    &kp SPACE  &lt RIG TAB   &studio_unlock
 			>;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>, <&msc SCRL_DOWN &msc SCRL_UP>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc SCRL_DOWN SCRL_UP>;
 		};
 		
 		windows_layer {
@@ -237,7 +243,7 @@
 			&ds_z 0 Z  &sel_x LCLK X       &kp C       &kp V        &kp B         &kp N      &kp M        &kp COMMA   &kp DOT     &kp ENTER
 			&kp C_MUTE  &lt LEF TAB  &kp LSHIFT     &kp SPACE &lt RIG TAB  &studio_unlock
 			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>, <&msc SCRL_DOWN &msc SCRL_UP>;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc SCRL_DOWN SCRL_UP>;
 		};
 		
 		right_layer {
