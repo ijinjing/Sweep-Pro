@@ -3,7 +3,7 @@
 // #include <dt-bindings/zmk/rgb.h>
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 2500// 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20// 10
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 70// 10
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -163,8 +163,8 @@
         rot_msc: sensor_rotate_msc {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            bindings = <&msc SCRL_DOWN &msc SCRL_UP>;
-            tap-ms = <5>;
+            bindings = <&msc>, <&msc>;
+            tap-ms = <20>;
         };
 	};
 	
@@ -232,7 +232,7 @@
 			&ds_z 0 Z   &sel_x LCLK X       &kp C        &kp V        &kp B         &kp N      &kp M        &kp COMMA    &kp DOT     &kp ENTER
 			&kp C_MUTE  &lt LEF TAB  &kp LSHIFT    &kp SPACE  &lt RIG TAB   &studio_unlock
 			>;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc SCRL_DOWN SCRL_UP>;
 		};
 		
 		windows_layer {
